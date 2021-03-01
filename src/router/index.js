@@ -10,26 +10,71 @@ import Lishi from "../views/Lishi";
 import Meishi from "../views/Meishi";
 import Minsu from "../views/Minsu";
 import Zhaoshang from "../views/Zhaoshang";
+import Q1 from "../views/Q1"
+import Q2 from "../views/Q2";
+import Q3 from "../views/Q3";
+import Q4 from "../views/Q4";
+import fa from "element-ui/src/locale/lang/fa";
+
 
 Vue.use(VueRouter)
 
 const routes = [
 
   {
-    path: '*',
-    redirect: '/Cunluo',
-  },
-  {
-    path: '/Cunluo',
-    name: 'xxx村',
+    path: '/',
+    name: '六汪村',
     component: Cunluo,
+    show: true,
     meta:{
-      title:'六汪镇'
+      title:'六汪镇',
     },
   },
   {
-    path: '/Quanjing',
+    path: '/Q1',
+    name: '六汪镇镇区',
+    component: Q1,
+    subshow:true,
+    show:false,
+    meta:{
+      title:'六汪镇镇区'
+    }
+  },
+  {
+    path: '/Q2',
+    name: '石屋村',
+    component: Q2,
+    show:false,
+    subshow:true,
+    meta:{
+      title:'石屋村'
+    }
+  },
+  {
+    path: '/Q3',
+    name: '山周村',
+    component: Q3,
+    subshow:true,
+    show: false,
+    meta:{
+      title:'山周村'
+    }
+  },
+  {
+    path: '/Q4',
+    name: '柳杭沟村',
+    component: Q4,
+    subshow: true,
+    show:false,
+    meta: {
+      title: '柳杭沟村'
+    },
+  },
+  {
+    path: '/Q',
     name: '全景展示',
+    show: false,
+    wshow:true,
     component: Quanjing,
     meta:{
       title:'全景展示'
@@ -39,6 +84,7 @@ const routes = [
     path: '/Lishi',
     name: '历史文化',
     component: Lishi,
+    show: true,
     meta:{
       title:'历史文化'
     },
@@ -47,6 +93,7 @@ const routes = [
     path: '/Huanjing',
     name: '环境格局',
     component: Huanjing,
+    show: true,
     meta:{
       title:'环境格局'
     },
@@ -55,6 +102,7 @@ const routes = [
     path: '/Chuantong',
     name: '传统建筑',
     component: Chuantong,
+    show: true,
     meta:{
       title:'传统建筑'
     },
@@ -63,6 +111,7 @@ const routes = [
     path: '/Minsu',
     name: '民俗文化',
     component: Minsu,
+    show: true,
     meta:{
       title:'民俗文化'
     },
@@ -71,6 +120,7 @@ const routes = [
     path: '/Meishi',
     name: '美食物产',
     component: Meishi,
+    show: true,
     meta:{
       title:'美食物产'
     },
@@ -79,6 +129,7 @@ const routes = [
     path: '/Lvyou',
     name: '旅游导览',
     component: Lvyou,
+    show: true,
     meta:{
       title:'旅游导览'
     },
@@ -87,10 +138,16 @@ const routes = [
     path: '/Zhaoshang',
     name: '招商信息',
     component: Zhaoshang,
+    show: true,
     meta:{
       title:'招商信息'
     },
   },
+  /*{
+    path: '/',
+    redirect: '/Cunluo',
+    show:false,
+  },*/
   /*{
     path: '/about',
     name: 'About',

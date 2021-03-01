@@ -6,15 +6,26 @@
         <el-menu router
               :default-active="this.$route.path"
               class="el-menu-demo"
-              mode="horizontal"
-              @select="handleSelect">
-       <!-- <el-menu-item index="1" style="margin-top: 3%">处理中心</el-menu-item>-->
-        <el-menu-item id="navv" v-for="(item,i) in navList" :key="i" :index="item.name" >
-          <template slot="title">
-            <!--<i class="el-icon-s-platform"></i>-->
-            <span>{{item.navItem}}</span>
-          </template>
-        </el-menu-item>
+              mode="horizontal">
+          <el-submenu id="nav2" v-for="(item2,j) in $router.options.routes" :key="j+'2'" :index="item2.path"  v-if="item2.wshow">
+            <template slot="title">
+              <!--<i class="el-icon-s-platform"></i>-->
+              <span>{{item2.name}}</span>
+            </template>
+            <el-menu-item  v-for="(item3,k) in $router.options.routes" :key="k+'3'" :index="item3.path" v-if="item3.subshow" :class="$route.path==item3.path?'is-active':''">
+              <template slot="title">
+                <!--<i class="el-icon-s-platform"></i>-->
+                <span>{{item3.name}}</span>
+              </template>
+            </el-menu-item>
+          </el-submenu>
+          <el-menu-item id="navv" v-for="(item,i) in $router.options.routes" :key="i+'1'" :index="item.path"  v-if="item.show">
+            <template slot="title">
+              <!--<i class="el-icon-s-platform"></i>-->
+              <span>{{item.name}}</span>
+            </template>
+          </el-menu-item>
+
 
       </el-menu></el-col>
     </el-row>
@@ -55,6 +66,11 @@
 
 <style>
   #navv{
+    margin-top: 2.5%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+  #nav2{
     margin-top: 2.5%;
     margin-left: 1%;
     margin-right: 1%;
